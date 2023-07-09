@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+}
+
+.bookBtn {
+  text-align: center;
+  height: 50px;
+  width: 150px;
+  border-radius: 10%;
+  color: #fff;
+  background: steelblue;
+  font-weight: bold;
+  border: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+main {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+  padding: 20px;
+}
+
+.book {
+  background: steelblue;
+  height: 300px;
+  width: 250px;
+  padding: 20px;
+}
