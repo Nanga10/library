@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -11,15 +15,15 @@ header {
   height: 15vh;
 }
 
-.bookBtn {
+.addBookBtn {
   text-align: center;
   height: 50px;
   width: 150px;
-  border-radius: 10%;
-  color: #fff;
-  background: steelblue;
+  border-radius: 15%;
+  color: steelblue;
+  background: white;
   font-weight: bold;
-  border: none;
+  border: 2px solid steelblue;
 }
 
 .modal {
@@ -34,18 +38,39 @@ header {
 }
 
 .modal-content {
+  display: flex;
+  flex-direction: column;
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 50%;
+}
+
+.form-input {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+input {
+  width: 300px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.form-input label {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: 700;
+  color: #434242;
 }
 
 .close {
   color: #aaa;
   float: right;
   font-size: 28px;
-  font-weight: bold;
 }
 
 .close:hover,
@@ -55,17 +80,42 @@ header {
   cursor: pointer;
 }
 
-main {
+.container {
+  margin: 5px;
   display: grid;
-  grid-template-rows: 50% 50%;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
-  padding: 20px;
 }
 
 .book {
-  background: steelblue;
-  height: 300px;
-  width: 250px;
+  background: rgb(91, 142, 183);
   padding: 20px;
+  font-weight: 600;
+  color: #434242;
+  border-radius: 5px;
+}
+.book p {
+  margin-right: 10px;
+}
+.submitBtn {
+  text-align: center;
+  height: 30px;
+  width: 100px;
+  border-radius: 15%;
+  color: steelblue;
+  background: white;
+  font-weight: bold;
+  border: 2px solid steelblue;
+}
+
+.deleteBookBtn {
+  text-align: center;
+  height: 25%;
+  width: 100px;
+  border-radius: 15%;
+  color: steelblue;
+  background: white;
+  font-weight: bold;
+  border: 2px solid steelblue;
+  margin-top: 10px;
 }

@@ -1,16 +1,29 @@
 let modal = document.getElementById("add-book-modal");
 let library = [];
-const bookBtn = document.getElementById("add-book-btn");
+const addbookBtn = document.getElementById("add-book-btn");
 const closeMdl = document.getElementById("close-modal");
 const submitBtn = document.getElementById("submit-btn");
+const deleteBtn = document.getElementById("delete-book-btn");
 
 const authorInp = document.getElementById("author-input");
 const titleInp = document.getElementById("title-input");
 const numPagesInp = document.getElementById("num-pages-input");
 const readStatus = document.getElementById("read-selector");
 
+let bookAuthor = document.getElementById("book-author");
+let bookTitle = document.getElementById("book-title");
+let bookNumPages = document.getElementById("book-num-pages");
+let bookReadStatus = document.getElementById("book-read-status");
+
+let bookCard = document.getElementById("book-card");
+
 let form = document.getElementById("add-book-form");
 
+let div = document.querySelector(".container");
+
+let index = -1;
+
+//Book constructor
 function Book(author, title, numPages, read) {
   this.author = author;
   this.title = title;
@@ -19,6 +32,7 @@ function Book(author, title, numPages, read) {
 }
 
 function addBookToLibrary() {
+  //Get values from text box to create new book object
   const book = new Book(
     authorInp.value,
     titleInp.value,
@@ -26,30 +40,41 @@ function addBookToLibrary() {
     readStatus.value
   );
 
-  library.push(book);
-  console.log(library);
+  library.push(book); //Push book to library array
 }
 
-//delete-button on books card to remove book
+//increment array index
+function incrementIndex() {
+  index = index + 1;
+}
+
+function renderBook() {
+  div.innerHTML += `<div id="book-card" class="book"> <p id="book-author">Author:   ${library[index].author}</p> <p id="book-title">Title:   ${library[index].title}</p> <p id="book-num-pages">Number of Pages:   ${library[index].numPages}</p> <p id="book-read-status">Read:   ${library[index].read}</p> <button type="button" id="delete-book-btn" class="deleteBookBtn" onClick="deleteBook(this)"> Delete Book </button> </div>`;
+}
+
+function deleteBook(e) {
+  e.parentElement.remove(); //delete book card
+}
 
 submitBtn.addEventListener("click", function () {
-  addBookToLibrary();
-  // diplay added book to page
-
+  addBookToLibrary(); // add book to library array
+  incrementIndex();
+  renderBook(); // diplay added book to page
   form.reset(); // clear input boxes
 });
 
-bookBtn.addEventListener("click", function () {
-  console.log("Hello");
+//open modal to add book to array
+addbookBtn.addEventListener("click", function () {
   modal.style.display = "block";
 });
 
 closeMdl.addEventListener("click", function () {
+  // modal when x on modal clicked
   modal.style.display = "none";
-  console.log("close");
 });
 
 window.onclick = function (event) {
+  // close modal when clicked anywhere on the page
   if (event.target == modal) {
     modal.style.display = "none";
   }
