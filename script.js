@@ -1,5 +1,6 @@
 let modal = document.getElementById("add-book-modal");
 let library = [];
+
 const addbookBtn = document.getElementById("add-book-btn");
 const closeMdl = document.getElementById("close-modal");
 const submitBtn = document.getElementById("submit-btn");
@@ -8,7 +9,7 @@ const deleteBtn = document.getElementById("delete-book-btn");
 const authorInp = document.getElementById("author-input");
 const titleInp = document.getElementById("title-input");
 const numPagesInp = document.getElementById("num-pages-input");
-const readStatus = document.getElementById("read-selector");
+const readStatus = document.getElementsByClassName("switch-input");
 
 let bookAuthor = document.getElementById("book-author");
 let bookTitle = document.getElementById("book-title");
@@ -37,7 +38,7 @@ function addBookToLibrary() {
     authorInp.value,
     titleInp.value,
     numPagesInp.value,
-    readStatus.value
+    readStatus[0].checked ? "yes" : "no"
   );
 
   library.push(book); //Push book to library array
@@ -49,7 +50,7 @@ function incrementIndex() {
 }
 
 function renderBook() {
-  div.innerHTML += `<div id="book-card" class="book"> <p id="book-author">Author:   ${library[index].author}</p> <p id="book-title">Title:   ${library[index].title}</p> <p id="book-num-pages">Number of Pages:   ${library[index].numPages}</p> <p id="book-read-status">Read:   ${library[index].read}</p> <button type="button" id="delete-book-btn" class="deleteBookBtn" onClick="deleteBook(this)"> Delete Book </button> </div>`;
+  div.innerHTML += `<div id="book-card" class="book"> <p id="book-author">Author:   ${library[index].author}</p> <p id="book-title">Title:  ${library[index].title}</p> <p id="book-num-pages">Number of Pages:   ${library[index].numPages}</p> <p id="book-read-status">Read:   ${library[index].read}</p> <button type="button" id="delete-book-btn" class="deleteBookBtn" onClick="deleteBook(this)"> Delete Book </button> </div>`;
 }
 
 function deleteBook(e) {
