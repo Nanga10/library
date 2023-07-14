@@ -80,10 +80,13 @@ input {
   cursor: pointer;
 }
 
-.container {
+main {
   margin: 5px;
+}
+.container {
+  margin-right: 5px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 }
 
@@ -113,11 +116,10 @@ input {
   height: 25%;
   width: 100px;
   border-radius: 15%;
-  color: steelblue;
+  color: red;
   background: white;
-  font-weight: bold;
-  border: 2px solid steelblue;
-  margin-top: 10px;
+  border: 1px solid red;
+  margin-bottom: 10px;
 }
 
 .switch {
@@ -126,11 +128,12 @@ input {
   width: 100px;
   height: 30px;
   padding: 3px;
-  margin: 0 10px 10px 0;
+  margin: 0 10px 10px 10px;
   border-radius: 18px;
   cursor: pointer;
   box-sizing: content-box;
 }
+
 .switch-input {
   position: absolute;
   top: 0;
@@ -216,3 +219,9 @@ input {
   -moz-transition: All 0.3s ease;
   -o-transition: All 0.3s ease;
 }
+
+.switch-card-div{
+Display: flex;
+justify-content: space-between;
+}
+
